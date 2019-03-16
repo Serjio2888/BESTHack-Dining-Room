@@ -1,0 +1,378 @@
+body
+{
+	background: url(eYrhZ5CtF1I.jpg) repeat-y green right top;
+	background-color: lightgreen;
+}
+
+* { text-align: justify;}
+
+#kerch {
+	text-align: center;
+	
+	vertical-align: middle;
+	display: block;
+	display: table-cell;
+	position: relative;
+	background: silver;
+	border: 3px dashed black;
+	width: 250px;
+	padding: 0.3em;
+	margin: 5px 5px 10px 20px;
+	height: 2.8em;
+	box-shadow: inset 0px 0px 10px black; /* тени */
+	
+}
+
+#kerch:hover { background: red }
+#kerch:active { background: yellow }
+
+#pepper {
+	position: absolute;
+	z-index: 1;
+	background: yellow;
+	height: 50px;
+	padding: 10px;
+	
+}
+
+#kepper {
+	position: absolute;
+	z-index: 2;
+	background: red;
+	margin-left: 20px;
+	height: 20px;
+	padding: 10px;
+	
+}
+
+#pepper > #kepper:hover {
+	display: block;
+}
+
+.hoho {
+	position: relative;
+    margin: auto;
+    display: block; 
+	background: none;
+	height: 3em;
+	width: 500px;
+}
+
+
+#serg {
+	font-family: oswald;
+	margin: 60px;
+	height: 70px;
+	width: 100%;
+}
+
+#serg1 {
+	font-family: inherit;
+	margin: 1000px;
+	border: 3px solid black;
+	background-color: white;
+	height: 80%;
+	width: 10%;
+	float: left;
+	padding: 0.7em;
+	overflow: auto;
+}
+
+#borders {
+	margin-left: 30%
+}
+
+#smallborders {
+	margin-left: 10%
+}
+
+.serg2 {
+	font-family: inherit;
+	border: 3px solid black;
+	margin: 10px;
+	margin-left: 25px;
+	background-color: violet;
+	height: 80%;
+	width: 50%;
+	float: left;
+	padding: 0.2em;
+	overflow: auto;
+}
+
+#serg3 {
+	font-family: inherit;
+	margin: 10px;
+	border: 3px solid black;
+	background-color: violet;
+	height: 80%;
+	width: 10%;
+	float: left;
+	padding: 0.2em;
+	overflow: auto;
+}
+
+#spaces {
+	display: block;
+	height: 0.8em;
+}
+
+.Oswald {font-family: 'Oswald', sans-serif;}
+.Merriweather {font-family: 'Merriweather', serif;}
+.PlayfairDisplay {font-family: 'Playfair Display', serif;}
+
+.kekos{
+	border: 5px outset lightgreen;
+	background-color: lightgrey;
+	height: 140px;
+	width: 280px;
+	margin: 12px;
+	padding: 8px;
+	border-radius: 8%;
+	/*float: right; не используется, если position: fixed */
+	top: 50px;
+	right: -100px;
+	position: fixed;
+	z-index: 6;
+}
+
+.kekos:hover {background-color: white}
+
+h1 {color:green}
+
+h2, h3, .hey {color:yellow; font-size: 24px; font-weight: normal}
+
+#wey {color:yellow; font-size: 24px; font-weight: normal}
+
+p.lolo:hover { 
+background-color: red;
+ }
+
+.lolo {
+	text-decoration: none;
+	font-size: 22px;
+	color: darkgreen;
+}
+	
+/*a:nth-of-type(2n) {
+border: 2px solid white;
+}
+	
+	i { font-style: normal; }
+	
+#gooo:hover {
+border: 2px solid black;
+background-color: white;
+}*/
+
+
+
+.romb {
+    display: block;
+	float: left;
+	border: 5px solid black;
+	background-color: red;
+	border: 5px black;
+	height: 2em;
+    width:30%	
+}
+
+.bomb {
+	display: block;
+	float: left;
+	border: 5px black;
+	background-color: red;
+	height: 2em;
+	border: 5px black;
+    width:40%	
+}
+
+.plomb {
+	display: block;
+	float: left;
+	border: 5px black;
+	background-color: red;
+	border: 5px black;
+	height: 2em;
+    width:30%	
+}
+ul {
+    /* Убираю маркеры у списка*/
+    list-style: none;
+    /* Делаю элементы блочными. */
+    display: block;
+    /* Убираю отступы. */
+    margin:0px;
+    /* Убираю еще отступы! */
+    padding:0px;
+}
+
+ul.man > li {
+    /* Задаю выравнивание и позиционирование. */
+    float: left;
+    /* Считаем координаты относительно исходного места*/
+    position: relative;
+}
+ul.man > li > a {
+    /* Делаю элементы блочными: */
+    display: block;
+    /* Задаю белый цвет. */
+    color: #fff;
+    /* Задаю отступ 10px. */
+    padding: 2px;
+    /* Убираю форматирование*/
+    text-decoration: none;
+    /* Задаю цвет. */
+    background-color: #da570f;
+}
+ul.man > li > a:hover {
+    /* Задаю цвет при наведении. */
+    background-color: red;
+}
+ul.subman {
+    position: absolute;
+    width: 100px;
+    top: 37px;
+    left:0px;
+    /* Делаю субменю скрытыми. */
+    display: none;
+    /* Цвет — белый. */
+    background-color: red;
+}
+ul.subman > li {
+    /* Блочное расположение элементов*/
+    display: block;
+}
+ul.subman > li > a {
+    /* Делаю элементы блочными. */
+    display: block;
+    /* Убираю форматирование*/
+    text-decoration: none;
+    /* Задаю отступ. */
+    padding: 10px;
+    /* Задаю цвет. */
+    color: #ffffff;
+    /* Еще цвет. */
+    background-color: #da570f;
+}
+ul.subman > li > a:hover {
+    /* Цвет бэкграунда при наведении. */
+    background-color: #eb9316;
+    /* Задаю подчеркивание*/
+    text-decoration: underline;
+}
+ul.man > li:hover > ul.subman {
+    /* Делаю элементы блочными. */
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+.box{
+  position: relative;
+  margin: auto;
+  display: block; 
+  margin-top: 8%;
+  width: 600px;
+  height: 420px;
+  background: none;
+}
+
+.head{
+  position: absolute;
+  top: -10%;
+  left: -40%;
+  width: 50%;
+  height: 67%;
+  background: #A6BECF;
+  border-radius: 50%;
+}
+
+.head-copy{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #A6BECF;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.ear-left{
+  position: absolute;
+  width: 60%;
+  height: 65%;
+  left: -20%;
+  top: 5%;
+  background: #A6BECF;
+  border-radius: 50%;
+  z-index: 1;
+}
+.ear-right{
+  position: absolute;
+  width: 60%;
+  height: 65%;
+  right: -20%;
+  top: 5%;
+  background: #A6BECF;
+  border-radius: 50%;
+  z-index: 1;
+}
+.inner-ear{
+  position: absolute;
+  border-radius: 50%;
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  background: #819CAF;
+}
+
+.eye-left{
+  position: absolute;
+  background: white;
+  width: 30%;
+  height: 33%;
+  top: 25%;
+  left: 21%;
+  border-radius: 50%;
+  z-index: 3;
+}
+.eye-right{
+  position: absolute;
+  background: white;
+  width: 30%;
+  height: 33%;
+  top: 25%;
+  right: 21%;
+  border-radius: 50%;
+  z-index: 2;
+}
+.pupil{
+  position: absolute;
+  width: 28%;
+  height: 30%;
+  top: 35%;
+  left: 36%;
+  border-radius: 50%;
+  background: #27354A;
+}
+
+.nose{
+  position: absolute;
+  background: #BE845F;
+  width: 25%;
+  height: 42.5%;
+  left: 37%;
+  top: 45%;
+  border-radius: 50px;
+  z-index: 4;
+}
+
+

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<title>Блюдо!</title>
+{%if topic.hidden %}
+	<h4>Эта тема скрыта администратором. </h4>
+{% else %}
+<h4>{% if topic.food_type == "DR" %} Напиток {% endif %}</h4>
+<h4>{% if topic.food_type == "FC" %} Первое {% endif %}</h4>
+<h4>{% if topic.food_type == "SD" %} Салат {% endif %}</h4>
+<h4>{% if topic.food_type == "MC" %} Второе {% endif %}</h4>
+<h3><a id="serg">{{ topic.subject }}</a></h3>
+<div id="smallborders">
+<div class="well">
+	{{ topic.text }}
+</div>
+<br />
+{% comment %}
+<h4>Время публикации {{ topic.made_time }} </h4>
+<h4>Просмотрено {{ topic.views }} раз</h4>
+{% endcomment %}
+<h4>Количество калорий {{ topic.calories }}</h4>
+<h4>Стоимость: {{ topic.price }} р.</h4>
+<h4>Масса {{ topic.weigth }} г</h4><br />
+{% for comment in topic.comment_set.all %}
+<p>
+	<strong>{{ comment.author_nick }}:</strong> {{ comment.text }}
+	{% if comment.reply_to %}
+		<b>| Reply to {{ comment.reply_to.author_nick }}</b>
+	{% endif %}
+</p>
+{% endfor %}
+
+<a href="{{ comment_add_url }}" type="button" class="btn btn-primary">Добавить комментарий</a>
+</div>
+{% endif %}
+
+
+{% endblock %}

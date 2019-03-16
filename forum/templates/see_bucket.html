@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content%}
+<div id="borders">
+<ul>
+	{% for meal in meals %}
+		<li><a id="kerch">{{ meal.meal }}<br /> ({{ meal.price }} р/{{meal.calories}} кал)</a></li> 
+
+	{% endfor %}
+</ul>
+<br />
+<strong>Всего калорий:</strong> {{allcall}}<br />
+<strong>Общая стоимость:</strong> {{allprice}}<br />
+
+<a href="/cleaning" type="button" class="btn btn-primary" id="serg">Очистить корзину</a><p></p>
+</div>
+{% endblock%}

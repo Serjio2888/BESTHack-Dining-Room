@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div id="borders">
+<h4> Текущее время - {{hour}}:{{minute}}</h4>
+<h4> Время работы столовой: 9.00 - 18.00</h4>
+{% if hour >= 18 or hour < 9  %}
+Столовая закрыта
+{% else %}
+Столовая работает
+{% endif %}
+<h3 class="PlayfairDisplay">Список блюд</h2>
+<form action="bucket" method="POST">
+{% csrf_token %}
+<ul>
+	{% for topic in topics %}
+		{%if topic.hidden %}
+			<li><a id="kerch">Нет в наличии</a></li>
+		{% else %}
+			<li><input type="checkbox" name="{{topic}}"><a id="kerch" href="/topic/{{ topic.pk }}">{{ topic.subject }}<br /> ({{ topic.price }} р/{{topic.calories}} кал/{{topic.weigth}} г)</a></li> 
+		{% endif %}
+	{% endfor %}
+</ul>
+<input class="io" type="submit" name="bucket"  value="Добавить отмеченные в корзину!"/>
+</form>
+
+<div class="kekos">
+<p class="PlayfairDisplay"> Формируй меню столовой <br /><br />
+онлайн<br /> <br /><strong>Привет, {{name}}!</strong></p></div>
+
+<a href="{{ topic_add_url }}" type="button" class="btn btn-primary" id="serg">Добавить блюдо </a>
+<p></p>
+
+
+<a href="{{ see_bucket }}" type="button" class="btn btn-primary" id="serg">ЗАЙТИ В КОРЗИНУ</a><p></p>
+{% comment %}
+<a href="/" type="button" class="btn btn-primary" id="serg">Сортировать блюда по времени добавления</a><p></p>
+<a href="{{ topic_sorted }}" type="button" class="btn btn-primary" id="serg">Сортировать блюда по количеству просмотров</a><p></p>
+{% endcomment %}
+<br /><br /><br />
+
+{% endblock %}

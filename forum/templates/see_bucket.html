@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block content%}
+</br>
+	<div id="borders">
+	<div class="menu">
 <div id="borders">
 <ul>
 	{% for meal in meals %}
@@ -10,7 +13,7 @@
 <br />
 <strong>Всего калорий:</strong> {{allcall}}<br />
 <strong>Общая стоимость:</strong> {{allprice}}<br />
-
-<a href="/cleaning" type="button" class="btn btn-primary" id="serg">Очистить корзину</a><p></p>
-</div>
+<br />
+<a href="/cleaning" type="button" class="btn btn-primary" class="serg2">Очистить корзину</a><p></p>
+</div></div></div>
 {% endblock%}

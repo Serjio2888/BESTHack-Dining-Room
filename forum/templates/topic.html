@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content%}
+</br>
+	<div id="borders">
+	<div class="menu">
 <title>Блюдо!</title>
 {%if topic.hidden %}
 	<h4>Эта тема скрыта администратором. </h4>
 {% else %}
-<h4>{% if topic.food_type == "DR" %} Напиток {% endif %}</h4>
-<h4>{% if topic.food_type == "FC" %} Первое {% endif %}</h4>
-<h4>{% if topic.food_type == "SD" %} Салат {% endif %}</h4>
-<h4>{% if topic.food_type == "MC" %} Второе {% endif %}</h4>
 <h3><a id="serg">{{ topic.subject }}</a></h3>
 <div id="smallborders">
 <div class="well">
@@ -35,5 +34,5 @@
 </div>
 {% endif %}
 
-
+</div></div>
 {% endblock %}

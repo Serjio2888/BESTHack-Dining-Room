@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content%}
-
+</br>
+	<div id="borders">
+	<div class="menu">
 <h2>Создать комментарий</h2>
 
 <form action="{{ request.path }}" method="post">
@@ -16,5 +18,5 @@
     {% endfor %}
 	<button type="submit" class="btn btn-primary">Создать комментарий</button>
 </form>
-
+</div></div>
 {% endblock %}

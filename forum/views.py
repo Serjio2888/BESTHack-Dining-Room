@@ -16,15 +16,33 @@ context = {'topics': topics,
                 'see_bucket':'see_bucket',
                'topic_add_url':'add_topic',
                'topic_sorted':'sorted',
-               'name':os.getlogin(),
 		'hour':t.tm_hour+3,
 		'minute':t.tm_min,
 		'add_to_bucket':'bucket'}
 
+def index(request):
+    t = time.localtime()
+    topics = Topic.objects.all()
+    drinks = Topic.objects.filter(food_type="DR")
+    mains = Topic.objects.filter(food_type="MC")
+    salads = Topic.objects.filter(food_type="SD")
+    firsts = Topic.objects.filter(food_type="FC")
+    context = {	'drinks': drinks,
+		'firsts':firsts,
+		'salads':salads,
+		'mains':mains,
+                'see_bucket':'see_bucket',
+               'topic_add_url':'add_topic',
+               'topic_sorted':'sorted',
+		'hour':t.tm_hour+3,
+		'minute':t.tm_min,
+		'add_to_bucket':'bucket'}
+    return render(request, 'index.html', context)
+
 def cleaning(request):
     meals = Bucket.objects.all().delete()
     print('DELETED')
-    return render(request, 'index.html', context)
+    return index(request)
 
 def see(request):
     meals = Bucket.objects.all()
@@ -53,8 +71,7 @@ def bucket(request):
     print('Ab-ra-ka-da-bra')
     return index(request)
 
-def index(request):
-    return render(request, 'index.html', context)
+
 
 def sorted(request):
     print(request)

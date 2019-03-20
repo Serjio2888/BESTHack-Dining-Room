@@ -9,6 +9,21 @@ from forum.forms import CommentForm, TopicForm
 import os
 import time
 
+from django.shortcuts import render_to_response
+from django.template import RequestContext
+
+def handler404(request):
+    response = render_to_response('404.html', {},
+                                  context_instance=RequestContext(request))
+    response.status_code = 404
+    return response
+
+def handler500(request):
+    response = render_to_response('500.html', {},
+                                  context_instance=RequestContext(request))
+    response.status_code = 500
+    return response
+
 t = time.localtime()
 
 topics = Topic.objects.all()
@@ -41,7 +56,7 @@ def index(request):
 
 def cleaning(request):
     meals = Bucket.objects.all().delete()
-    print('DELETED')
+    
     return index(request)
 
 def see(request):
@@ -52,7 +67,7 @@ def see(request):
         my = str(m).split('|')
         allprice+=int(my[2])
         allcall+=int(my[1])
-    print(allprice, allcall)
+
     context = {'meals': meals,
                 'allprice':allprice,
                 'allcall':allcall,
@@ -61,20 +76,20 @@ def see(request):
     return render(request, 'see_bucket.html', context)
 
 def bucket(request):
-    print(request.POST)
+
     for i in request.POST:
         arr = i.split('|')
         if len(arr)>2:
             b = Bucket(meal=str(arr[2]), price=int(arr[0]), calories=int(arr[1]))
             b.save()
-            print('added')
-    print('Ab-ra-ka-da-bra')
+    
+    
     return index(request)
 
 
 
 def sorted(request):
-    print(request)
+
     topics = Topic.objects.all().order_by('-views')[:10]
     context = {'topics': topics,
                'topic_add_url':'add_topic',

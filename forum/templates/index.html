@@ -3,86 +3,88 @@
 {% block content%}
 <div class="page_elem">
 	<div class="basket">
-    <div class="truck-itm">Cтоловая работает c 9.00 до 18.00</div>
+    <div class="buck-itm">Cтоловая работает c 9.00 до 18.00</div>
     
-    <div class="buck-itm">{% if hour >= 18 or hour < 9  %}
+    <div class="truck-itm">{% if hour >= 18 or hour < 9  %}
 Сейчас столовая закрыта
 {% else %}
 Сейчас столовая работает
 {% endif %}</div></div>
-
-</div>
 <br />
+</div>
+
 	<div id="borders">
 	<div class="menu">
-		<h3 class="PlayfairDisplay">Список блюд</h2>
+		<h3 class="PlayfairDisplay" style="font-size: 4vmin; margin-left: 2.3%;">Список блюд</h2>
 	<form action="bucket" method="POST">
 	
 	{% csrf_token %}
 
 	  <details>
-	<summary tabindex="1"><span>Напитки</span></summary>
+
+	    <summary tabindex="1" ><span><div class="dark_grey" style="font-size: 3.6vmin;">Напитки</div></span></summary>
+
 	<p>
 	
 	{% csrf_token %}
 	<ul>
 		{% for dish in drinks %}
 			{%if dish.hidden %}
-				<li><a id="kerch">Нет в наличии</a><p></p></li>
+				<li><a id="kerch" style="font-size: 2.8vmin;">Нет в наличии</a><p></p></li>
 			{% else %}
-				<li><a id="kerch" href="/topic/{{ dish.pk }}">{{ dish.subject }}<br /> ({{ dish.price }} р/{{dish.calories}} кал/{{dish.weigth}} г)<br /></a><input type="checkbox" style="margin-left: 8.4em"name="{{dish}}" id="qwe"></li>
+				<li><a id="kerch" href="/topic/{{ dish.pk }}" style="font-size: 2.8vmin;">{{ dish.subject }}<br /> ({{ dish.price }} р/{{dish.calories}} кал/{{dish.weigth}} г)<br /></a><input type="checkbox" style="margin-left: 8.4em" name="{{dish}}"  id="qwe"></li>
 			{% endif %}
 		{% endfor %}
 	</ul>
 	</p>
 	</details>
-
+<br />
   <details>
-    <summary tabindex="2" ><span>Первые блюда</span></summary>
+    <summary tabindex="2" ><span><div class="dark_grey" style="font-size: 3.6vmin;">Первые блюда</div></span></summary>
 <p>
 	<ul>
 		{% for dish in firsts %}
 			{%if dish.hidden %}
-				<li><a id="kerch">Нет в наличии</a><p></p></li>
+				<li><a id="kerch" style="font-size: 2.8vmin;">Нет в наличии</a><p></p></li>
 			{% else %}
-				<li><a id="kerch" href="/topic/{{ dish.pk }}">{{ dish.subject }}<br /> ({{ dish.price }} р/{{dish.calories}} кал/{{dish.weigth}} г)<br /></a><input type="checkbox" style="margin-left: 8.4em"name="{{dish}}" id="qwe"></li>
-			{% endif %}
-		{% endfor %}
-	</ul>
-	</p>
-  </details>
-
-  <details>
-    <summary tabindex="3" ><span>Основные блюда</span></summary>
-<p>
-	<ul>
-		{% for dish in mains %}
-			{%if dish.hidden %}
-				<li><a id="kerch">Нет в наличии</a><p></p></li>
-			{% else %}
-				<li><a id="kerch" href="/topic/{{ dish.pk }}">{{ dish.subject }}<br /> ({{ dish.price }} р/{{dish.calories}} кал/{{dish.weigth}} г)<br /></a><input type="checkbox" style="margin-left: 8.4em"name="{{dish}}" id="qwe"></li>
-			{% endif %}
-		{% endfor %}
-	</ul>
-	</p>
-  </details>
-
-  <details>
-    <summary tabindex="4" >Салаты</summary>
-<p>
-	<ul>
-		{% for dish in salads %}
-			{%if dish.hidden %}
-				<li><a id="kerch">Нет в наличии</a><p></p></li>
-			{% else %}
-				<li><a id="kerch" href="/topic/{{ dish.pk }}">{{ dish.subject }}<br /> ({{ dish.price }} р/{{dish.calories}} кал/{{dish.weigth}} г)<br /></a><input type="checkbox" style="margin-left: 8.4em"name="{{dish}}" id="qwe"></li>
+				<li><a id="kerch" href="/topic/{{ dish.pk }}" style="font-size: 2.8vmin;">{{ dish.subject }}<br /> ({{ dish.price }} р/{{dish.calories}} кал/{{dish.weigth}} г)<br /></a><input type="checkbox" style="margin-left: 8.4em"  name="{{dish}}" id="qwe"></li>
 			{% endif %}
 		{% endfor %}
 	</ul>
 	</p>
   </details>
 <br />
-<input class="io" type="submit" name="bucket"  value="Добавить отмеченные блюда в корзину!"/>
+  <details>
+    <summary tabindex="3" ><span><div class="dark_grey" style="font-size: 3.6vmin;">Основные блюда</div></span></summary>
+<p>
+	<ul>
+		{% for dish in mains %}
+			{%if dish.hidden %}
+				<li><a id="kerch" style="font-size: 2.8vmin;">Нет в наличии</a><p></p></li>
+			{% else %}
+				<li><a id="kerch" href="/topic/{{ dish.pk }}" style="font-size: 2.8vmin;">{{ dish.subject }}<br /> ({{ dish.price }} р/{{dish.calories}} кал/{{dish.weigth}} г)<br /></a><input type="checkbox" style="margin-left: 8.4em" name="{{dish}}" style="margin-left: 8.4em" id="qwe"></li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+	</p>
+  </details>
+<br />
+  <details>
+    <summary tabindex="4" ><div class="dark_grey" style="font-size: 3.6vmin;">Салаты</div></summary>
+<p>
+	<ul>
+		{% for dish in salads %}
+			{%if dish.hidden %}
+				<li><a id="kerch" style="font-size: 2.8vmin;">Нет в наличии</a><p></p></li>
+			{% else %}
+				<li><a id="kerch" href="/topic/{{ dish.pk }}" style="font-size: 2.8vmin;">{{ dish.subject }}<br /> ({{ dish.price }} р/{{dish.calories}} кал/{{dish.weigth}} г)<br /></a><input type="checkbox" style="margin-left: 8.4em" name="{{dish}}" style="margin-left: 8.4em" id="qwe"></li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+	</p>
+  </details>
+<br />
+<input class="io" type="submit" name="bucket" style="font-size: 28px; " value="Добавить в корзину"/>
 </form>
 
 

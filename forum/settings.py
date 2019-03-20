@@ -32,7 +32,7 @@ SECRET_KEY = '!d96y1u6)c73wds7+wn&0vuddl-h9nuoa+21g&#lu+)a@7vldk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['18.224.186.193', 'ec2-18-224-186-193.us-east-2.compute.amazonaws.com']
 
 
 # Application definition
@@ -83,11 +83,14 @@ WSGI_APPLICATION = 'forum.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db_name',
+        'USER': 'db_user',
+        'PASSWORD': 'qwerty',
+        'HOST': 'localhost',
+        'PORT': '',
+    },
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

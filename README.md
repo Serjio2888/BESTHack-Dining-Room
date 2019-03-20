@@ -1,4 +1,4 @@
-  # Сайт столовой на BESTHack[WEB]
+  # Сайт столовой на BESTHack [WEB Development]
  
  Доступен по ссылке: http://ec2-18-224-186-193.us-east-2.compute.amazonaws.com/
  
